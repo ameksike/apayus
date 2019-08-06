@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Gestión de reservas online</title>
+		{$apayus->get('client')->link('bootstrap',  'main')}
+		{$apayus->get('client')->link('bootstrap.min', 'main')}
+
+		{$apayus->get('client')->script()}
+		{$apayus->get('client')->script('jquery', 'main')}
+		{$apayus->get('client')->script('bootstrap', 'main')}
+		
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	</head>
+	
+	<body>
+		{$apayus->get('client')->header()}
+
+		<div class="container login">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="login-panel panel panel-success">
+					<div class="panel-heading">
+						<strong class="panel-title">Autenticar</strong>
+					</div>
+					<div class="panel-body container">						
+						<div class="form-signin">
+							<div id="div-user" class="input-group form-group">
+								<span class="input-group-addon glyphicon glyphicon-user"></span>
+								<input type="user" class="form-control loginUser" placeholder="Usuario" required autofocus>
+							</div>
+							<div id="div-pass" class="input-group form-group">
+								<span class="input-group-addon glyphicon glyphicon-asterisk"></span>
+								<input type="password" class="form-control loginPass" placeholder="Contraseña" required>
+							</div>
+							<div class="form-group">
+								<label class="checkbox">
+								  <input type="checkbox" class="no-remember" onclick="noRememberPass()"><h5>¿Has olvidado tu contraseña?</h5>
+								</label>
+							</div>							
+							<button class="btn btn-lg btn-login btn-success btn-block" type="submit" onclick="autenticar()">Iniciar sesión</button>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		
+{$apayus->get('client')->footer()}
+
+	<!--Archivos css y js-->
+		{$apayus->get('client')->link('main',  'main')}	
+		{$apayus->get('client')->script('user',  'user')}
+		{$apayus->get('client')->script('md5', 'user')}
+		{$apayus->get('client')->link('user', 'user')}	
+	</body>
+</html>

@@ -1,0 +1,63 @@
+.login-panel{
+	margin: 25% auto 25% auto;
+}
+
+.login .panel-heading{
+    background-color: #53AC4D !important;
+    color: white !important;
+}
+
+/*registro*/
+.registro{overflow:auto;}
+
+.registro .col-md-9,.registro .col-md-3{overflow:auto;padding: 5px;}
+
+.form-horizontal fieldset{
+	border: 1px solid gainsboro;
+	padding-bottom:2%;
+	margin-bottom:2%;
+}
+
+.form-horizontal fieldset legend{
+	border-bottom:none;
+	margin-bottom:5px;
+	padding: 0 5px 0 5px;
+	width:40%
+}
+
+.form-horizontal fieldset.dos legend{
+	width:70%
+}
+.form-horizontal fieldset.dos legend input{background-color:red;}
+
+.registro .panel{
+	margin:0px;
+}
+
+.registro .col-md-9{
+	padding-bottom:20px;
+}
+
+.registro .col-md-9 fieldset{
+	width: 48%;
+}
+.registro .btn-success {
+	margin:0 20px 20px 0;
+}
+
+.form-horizontal fieldset.dos legend input{margin-right:5px;}
+
+.panel-default > .panel-heading {
+    background-color: #F0AD4E !important;
+    border-color: #DDDDDD;
+    color: #333333;
+}
+
+.panel-default > .panel-heading {
+    background-repeat: repeat-x;
+}
+
+.registro .panel-heading{
+    margin:0;
+}
+

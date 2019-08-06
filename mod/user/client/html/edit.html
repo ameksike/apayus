@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<title>Gestión de reservas online</title>
+		{$apayus->get('client')->link('bootstrap',  'main')}
+		{$apayus->get('client')->link('bootstrap-theme', 'main')}
+
+		{$apayus->get('client')->script()}
+		{$apayus->get('client')->script('jquery', 'main')}
+		{$apayus->get('client')->script('bootstrap', 'main')}
+		
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	</head>
+	
+	<body onload=" return cargarMipagina(); return true">
+		{$apayus->get('client')->header()}
+		<div class="page-header label-info"> </div>
+		<div  class="content registro" >
+            <div class="col-md-9">
+			<div class="panel panel-success" style="overflow: auto;">
+
+				<div class="panel-heading "><h3 class="panel-title">Mi cuenta</h3></div>
+					<form onsubmit="return false;" action="{$apayus->url('user/edit')}" >
+					<div style="" class="col-lg-12 form-horizontal" style="overflow: auto;">
+						<fieldset class="navbar-form pull-left uno">
+							<legend>Información</legend>
+							<div class="row col-lg-12">
+								<label>Nombre<span class="required"> *</span></label>
+								<input type="text" class="form-control name" value="Ingrese su primer nombre"required>
+							</div><br>
+							<div class="row col-lg-12">
+								<label>Usuario<span class="required"> *</span></label>
+								<input type="text" class="form-control user" required>
+							</div><br>
+							<div class="row col-lg-12">
+								<label>Correo electrónico<span class="required"> *</span></label>
+								<input type="text" class="form-control email" placeholder="test@example.com" required>
+							</div>
+						</fieldset>
+						<fieldset class="navbar-form pull-right dos">
+							<legend><input type="checkbox" value="no-remember" onchange="limpiarPass();">Cambiar contraseña</legend>
+							<div class="row col-lg-12 oldpass">
+									<label>Contraseña actual</label>
+									<input disabled type="password" class="form-control oldpass" placeholder="Contraseña actual" required>
+							</div><br>
+							<div class="row col-lg-12 newpass">
+								<label>Contraseña nueva</label>
+								<input disabled type="password" class="form-control newpass" placeholder="Contraseña nueva" required>
+							</div><br>
+							<div class="row col-lg-12 rnewpass">
+								<label>Repetir contraseña</label>
+								<input disabled type="password" class="form-control rnewpass" placeholder="Repetir contraseña" required>
+							</div>
+						</fieldset>
+					</div> 
+					<button class="btn btn-success pull-right" type="submit" onclick="modificarUser()"data-toggle="tooltip" data-placement="left" title="Actualizar usuario"/>
+						<span class="glyphicon glyphicon-floppy-save"></span>
+					</button>
+					</form>
+			</div>
+			</div>
+                <div class="col-md-3">
+			<div class="panel panel-success"><div style="margin:10px;"><p><h2>Gestionar usuario</h2>
+				Solo existen dos usurios con iguales privilegios, que solo pueden modificar sus datos. <br>Es posible realizar cambios futuros, y permitir gestionar los usuarios..
+			</div></div>
+                </div>
+		</div>
+		</div>
+    {$apayus->get('client')->footer()}
+	<!--Archivos css y js-->
+		<!--librerias-->
+		{$apayus->get('client')->link('main',  'main')}	
+		{$apayus->get('client')->link('user',  'user')}	
+		{$apayus->get('client')->script('md5', 'user')}
+		{$apayus->get('client')->script('user', 'user')}
+	</body>
+</html>

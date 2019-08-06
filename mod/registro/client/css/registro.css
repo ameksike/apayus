@@ -1,0 +1,98 @@
+.proyectos{overflow:auto;}
+.proyectos .table{margin:5px;border:1px solid gainsboro;}
+.proyectos  .col-md-3{}
+.no-padding{
+	padding: 0 !important;
+}
+
+.input-error{
+	border-color:#b94a48;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.input-error:focus{
+	border-color:#953b39;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 6px #d59392;
+	box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 6px #d59392;
+}
+
+table.tablesorter thead tr .header {
+	background-image: url(../img/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(../img/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(../img/desc.gif);
+}
+
+.bbar{background-color: #DFF0D8;
+    border-color: #D6E9C6;
+    color: #468847;
+	overflow:auto;	
+    border: 1px solid #D6E9C6;
+    padding: 3px;
+	}
+.bbar .btn-group.pull-left{padding-top:3px;}
+#mygrid .table-responsive{padding:0px;margin:5px;}
+
+#mygrid .panel-heading{overflow:auto;}
+
+div.btn-group{
+    margin-top: 7px;
+}
+
+div.pull-left{
+    margin-left: 5px;
+}
+div.pull-right{
+    margin-right: 5px;
+}
+
+#mygrid .btn-group input{
+    padding:6px; width:50px; height:28px; text-align: center;
+}
+
+.proyectos > div {padding: 0 5px 0 5px;}
+
+.tooltips{
+    position:absolute;
+    top:50px;
+    right:0px;
+    border:1px solid #dedede;
+    padding:2px 5px;
+    font-family:'Droid Sans', arial, serif;
+    color:#FFF;
+    display:none;
+    background:#000000;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    z-index:1;
+}
+.tooltip1{
+    right:15px;
+}
+
+.tooltips2{
+    position:absolute;
+    top:300px;
+    right:0px;
+    border:1px solid #dedede;
+    padding:2px 5px;
+    font-family:'Droid Sans', arial, serif;
+    color:#FFF;
+    display:none;
+    background:#000000;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    z-index:1;
+}
+
+.ui-datepicker-calendar datapicker{
+	opacity:1;
+	background-color:red;
+}

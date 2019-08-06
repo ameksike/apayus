@@ -1,0 +1,1 @@
+Hola estimado cliente {$user}, usted a solicitado el servicio definido para recordar contraseñas olvidadas, este es su nueva constrasena {$pass}, le recordamos que debe tomarlo como algo de carácter temporal así que por favor cambie su contraseña.    

@@ -1,0 +1,181 @@
+<html>
+<head>
+    <title>Gestión de reservas online</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    {$apayus->get('client')->link('main',  'main')}
+    {$apayus->get('client')->link('bootstrap',  'main')}
+    {$apayus->get('client')->link('bootstrap.min', 'main')}
+    {$apayus->get('client')->link('sortable-theme-slick', 'reservas')}
+
+    {$apayus->get('client')->script()}
+    {$apayus->get('client')->script('jquery', 'main')}
+    {$apayus->get('client')->script('bootstrap', 'main')}
+    {$apayus->get('client')->script('sortable.min', 'reservas')}
+	{$apayus->get('client')->script('jquery-ui', 'reservas')}
+</head>
+
+<body>
+<!--librerias-->
+ {$apayus->get('client')->header()}
+ 
+<div class="page-header label-info"> </div>
+
+<div class="container-fluid">
+    <div class="proyectos">
+        <div class="col-md-12 contenedorGrid">
+        <div id="mygrid" class=" panel panel-success ">
+            <div class="panel-heading" style="padding:5px 15px 5px 20px; border:none;" >
+                <h4 class="panel-title" style="float:left;margin-top:6px;">Registro de reservas</h4>
+				<div>
+				   <div id="div-sp-control " class="default btn-group" style="text-align:right; display:inline;float:right;">
+						<button type="button" class="btn btn-warning" id="btn-sp-exportar" data-toggle="tooltip" data-placement="left" title="Exportar a excel" onClick="exportExcel() ">
+							<span class="glyphicon glyphicon-export"></span>
+						</button>
+						
+						<button type="button" class="btn btn-success" id="btn-sp-control" data-toggle="tooltip" data-placement="left" title="Filtrar reservas">
+							<span class="glyphicon glyphicon-filter"></span>
+						</button>
+					</div>
+				</div>
+ 
+            </div>
+            <div class="table-responsive center-block" style="overflow-x: auto;">
+                <table class="table table-condensed table-hover table-striped table-bordered sortable-theme-slick" id="example" cellspacing="0" width="100%">
+                    <thead>
+						<tr class="active"> </tr>
+                    </thead>
+                    <tbody>
+						<tr> </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="clearfix"></div>
+            <div class="bbar">
+                <div class="btn-group pull-left col-md-7">
+                     <span> Viendo </span>
+                        <select class="pagesize" onchange="recargarGrid()">
+                            <option selected="selected"  value="10">10</option>
+                            <option value="20">20</option>
+							<option value="30">40</option>
+                            <option value="40">80</option>
+							<option value="50">100</option>
+							<option value="60">150</option>
+                        </select>
+                        elementos en la página <strong id ="page" value="1"> 1 </strong> de <strong id ="count" value="1"> 1</strong> páginas.
+                </div>
+                <div class="pull-right col-md-4 paginado" >
+					<div class="pull-right  btn-group" style="margin:5px 0px 5px 0; padding:0px;">
+						<button type="button" class="btn btn-success " onclick="goPage1()" data-toggle="tooltip" data-placement="left" title="Primera página">
+									<span class="glyphicon glyphicon-fast-backward"></span>
+						</button>
+						<button type="button" class="btn btn-warning" onclick="goPageLess()" data-toggle="tooltip" data-placement="left" title="Página anterior">
+									<span class="glyphicon glyphicon-backward"></span>
+						</button>
+							<input id="cpape" class="btn form-control" type="text" style="padding:6px; width:45px; height:28px; text-align: center; display:inline;">
+						<button type="button" class="btn btn-warning" onclick="goPageMore()" data-toggle="tooltip" data-placement="left" title="Pagina siguiente">
+							<span class="glyphicon glyphicon-forward"></span>
+						</button>
+						<button type="button" class="btn btn-success" onclick="goPageEnd()" data-toggle="tooltip" data-placement="left" title="Última página">
+									<span class="glyphicon glyphicon-fast-forward"></span>
+						</button>
+					</div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div id="div-sp" class="col-md-0">					
+					<div id="div-sp-content" class="panel panel-group col-md-12 no-padding" style="display:none; clear:both;">
+<!-- Paneles del accordion-->
+						<div class="panel panel-default panel-success">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-target="#sp_filtros" style="cursor:pointer;">
+										<span class="caret"></span> Filtros
+									</a>
+								</h4>
+							</div>
+							<div id="sp_filtros" class="panel-collapse collapse in">
+								<div class="panel-body">
+<!--elementos de los filtros-->
+									<span>Campo:</span>
+									<select id="filtro-campo" class="form-control">
+										<option value="field" type=type></option>
+									</select>
+
+									<span>Operador:</span>
+									<select id="filtro-oper" class="form-control">
+										<option></option>
+									</select>
+
+									<span>Valor:</span>
+									<input id="filtro-valor" class="form-control" type="text" type="hidden" disabled>
+<!--/elementos de los filtros-->	
+<!--botones control de filtros-->
+									<div class="clearfix"> </div> <!--para dar la separacion-->
+									<div class="btn-group-wrap" style="text-align: right;">
+										<div id="side-panel-icons" class="btn-group">
+											<button id="apply-filter" type="button" class="btn btn-success" onclick="applyFilter()" data-toggle="tooltip" data-placement="left" title="Aplicar filtro">
+												<span class="glyphicon glyphicon-ok"></span>
+											</button>
+											<button id="save-filter" type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="left" title="Guardar filtro">
+												<span class="glyphicon glyphicon-floppy-save"></span>
+											</button>
+											<button id="clear-filter" type="button" class="btn btn-danger" onclick="clearFilter(this)" data-toggle="tooltip" data-placement="left" title="Borrar filtro">
+												<span class="glyphicon glyphicon-remove"></span>
+											</button>								
+										</div>
+										<span class="tooltips2 tooltip3">Aplicar filtro</span>
+										<span class="tooltips2 tooltip4">Guardar filtro</span>
+										<span class="tooltips2 tooltip5">Borrar filtro</span>
+									</div>
+<!--/botones control de filtros-->
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default panel-success">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-target="#sp-collapse-filter-list" style="cursor:pointer;">
+										<span class="caret"></span> 
+										Lista de Filtros
+									</a>
+								</h4>
+							</div>
+							
+							<div id="sp-collapse-filter-list" class="panel-collapse collapse in">
+								<div class="panel-body">	
+									<div id="sp_filter_list">
+	<!--para cada uno de los filtros-->
+									</div>
+									<div class="btn-group-wrap" style="text-align: right;">
+										<div class="btn-group">
+											<button id="apply-filter-list" type="button" class="btn btn-success" data-toggle="tooltip" data-placement="left" title="Aplicar lista de filtros">
+												<span class="glyphicon glyphicon-floppy-saved"></span>
+											</button>											
+											<button id="clear-filter-list" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Borrar lista de filtros">
+												<span class="glyphicon glyphicon-floppy-remove"></span>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+<!--/Paneles del accordion-->
+					</div>
+				</div>		
+    </div>
+</div>
+
+<form id="fexpor" action="{$apayus->url('reservas/export2xls')}">
+	<input id="fcount" type="hidden" name="count">
+	<input id="fpage" type="hidden" name="page">
+	<input id="ffilters" type="hidden" name="filters">
+</form>
+
+
+ {$apayus->get('client')->footer()}
+<!--Archivos css y js-->
+{$apayus->get('client')->script('reservas', 'reservas')}
+{$apayus->get('client')->link('reservas', 'reservas')}
+</body>
+</html>

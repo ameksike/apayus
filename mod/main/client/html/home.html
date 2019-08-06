@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/html">
+	<head>
+		<title>Gestión de reservas online</title>
+		{$apayus->get('client')->link('bootstrap',  'main')}
+		{$apayus->get('client')->link('bootstrap-theme', 'main')}
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	</head>
+	
+	<body>
+		{$apayus->get('client')->script()}
+		{$apayus->get('client')->script('jquery', 'main')}
+		{$apayus->get('client')->script('bootstrap', 'main')}
+		
+		{$apayus->get('client')->header()}
+						
+		<div class="page-header label-info"></div>
+		
+		<div  class="index">
+            <div class="col-md-6">
+                <img  src="{$apayus->url('main')}img/2.png" />
+                <h2>Sistema de Administración</h2>
+                El presente sistema está encaminado a facilitar el proceso de gestión y administración de las reservas realizadas en Santa Rosa de Quives Country Club. Su arquitectura basada en componentes posibilita la integración de nuevas funcionalidades o módulos de forma sencilla a las ya desarrolladas.
+            </div>
+            <div class="col-md-6"><p><h2>Funcionalidades del Sistema</h2>
+                <p>El sistema cuenta actualmente con varias funcionalidades agrupadas en los siguientes módulos:</p>
+                <ul>
+                    </br><li><strong>Módulo de Acceso(login):</strong> Posibilita de autenticación y acceso al sistema mediante la combinación usuario/contraseña. Una vez dentro del sistema el usuario tiene la posibilidad de cerrar la sesión en la que está trabajando. Además, en caso de olvido de la contraseña, envía un email de notificación al usuario con una contraseña de acceso temporal al sistema.</li>
+                    </br><li><strong>Módulo de Reservas: </strong> Una vez dentro del sistema se muestran en la pantalla principal un panel con las reservas realizadas en el club.</li>
+                    </br><li><strong>Módulo de Filtrado: </strong>Posibilita realizar una o varias operaciones de filtrado sobre el panel de reservas.</li>
+                    </br><li><strong>Módulo de Impresión: </strong> Permite imprimir en formato excel el panel de reservas íntegro o el resultado de alguna de las operaciones de filtrado sobre el mismo.</li>
+					 </br><li><strong>Módulo de Usuario: </strong> Permite al usuario que esté conectado modificar sus datos de acceso al sistema(Nombre, Usuario, Password, Email).</li>
+                </ul>
+            </div>
+		</div>
+
+   {$apayus->get('client')->footer()}
+	<!--Archivos css y js-->
+		{$apayus->get('client')->script('main', 'main')}
+		{$apayus->get('client')->link('main', 'main')}
+	</body>
+</html>
